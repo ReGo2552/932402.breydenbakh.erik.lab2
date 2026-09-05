@@ -1,0 +1,189 @@
+/* ЛР№2 — вариант 2 «Путешественник». Основной объём стилей — здесь (внешний файл). */
+
+:root {
+  --color-main: #faf3e8;      /* бежевый — фон страницы */
+  --color-panel: #fdeeda;     /* бежевый чуть темнее — панели/секции */
+  --color-accent: #a8511f;    /* оранжевый (тёмный оттенок) — акцент, ссылки, кнопки;
+                                  подобран так, чтобы держать контраст ≥4.5:1 и как текст
+                                  на бежевом фоне, и как фон под белым текстом */
+  --color-accent-dark: #7a3b16; /* для :hover/:active — ещё темнее, контраст выше */
+  --color-text: #4a3423;      /* тёмно-коричневый текст — контраст на беже ~9:1 */
+  --color-text-on-accent: #fff8ef; /* светлый текст на оранжевом фоне */
+  --border: #e6cfa8;
+  --font-base: Arial, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-main);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  line-height: 1.5;
+}
+
+header {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0.3em 0 0;
+}
+
+header p {
+  margin: 0;
+}
+
+/* Навигация — position: sticky, остаётся видимой при прокрутке */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  gap: 1.2rem;
+  background-color: var(--color-panel);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.2rem;
+  z-index: 10;
+}
+
+/* Порядок LVHA, чтобы :hover/:active не перебивались :visited */
+.sticky-nav a:link,
+.sticky-nav a:visited {
+  position: relative;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+
+.sticky-nav a:visited {
+  color: var(--color-accent-dark);
+}
+
+.sticky-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.2s ease;
+}
+
+.sticky-nav a:hover {
+  color: var(--color-accent);
+}
+
+.sticky-nav a:hover::after {
+  width: 100%;
+}
+
+.sticky-nav a:active {
+  color: var(--color-accent-dark);
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+section {
+  background-color: var(--color-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  color: var(--color-accent-dark);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.4rem;
+}
+
+/* Демонстрация position: static по варианту (значение по умолчанию, но прописано явно) */
+.static-demo {
+  position: static;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--color-main);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+button {
+  justify-self: start;
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-accent-dark);
+}
+
+button:active {
+  background-color: var(--color-accent-dark);
+  transform: translateY(1px);
+}
+
+button:focus {
+  outline: 3px solid var(--color-accent-dark);
+  outline-offset: 2px;
+}
+
+/* aside — position: relative как «якорь» для абсолютно позиционированной иконки-пина */
+.sidebar {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  background-color: var(--color-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.sidebar .pin {
+  position: absolute;
+  top: -14px;
+  right: 16px;
+  font-size: 1.6rem;
+}
+
+footer {
+  background-color: var(--color-panel);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 12px;
+}

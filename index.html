@@ -4,17 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Эрик Брейденбах - О себе</title>
-</head>
-<body style="background-color: #faf3e8; color: #4a3423; font-family: Arial, sans-serif; margin: 0;">
 
-  <header style="background-color: #e07b39; color: #fff8ef; padding: 20px;">
+  <link rel="stylesheet" href="style/style.css">
+
+  <style>
+    #projects ol {
+      column-count: 2;
+      column-gap: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
     <img src="https://geno.ru/media/news/7985/caf6c965b0cbb92670c889e5d49f124c.jpg" alt="Герб Кемерово" width="90" height="90">
     <h1>Эрик Брейденбах</h1>
     <p>Путешественник · студент группы 932402</p>
   </header>
 
+  <nav class="sticky-nav">
+    <a href="#skills">Навыки</a>
+    <a href="#projects">Проекты</a>
+    <a href="#contact">Обратная связь</a>
+    <a href="#place">Любимое место</a>
+  </nav>
+
   <main>
-    <section>
+    <section id="skills">
       <h2>Навыки</h2>
       <ul>
         <li>Планирование маршрута и бюджета поездки</li>
@@ -24,8 +40,8 @@
       </ul>
     </section>
 
-    <section>
-      <h2>Проекты</h2>
+    <section id="projects">
+      <h2 class="static-demo">Проекты</h2>
       <ol>
         <li>Грузия - поездка по Тбилиси и Военно-Грузинской дороге</li>
         <li>Турция - Каппадокия и полёт на воздушном шаре</li>
@@ -34,7 +50,7 @@
       </ol>
     </section>
 
-    <section>
+    <section id="contact">
       <h2>Обратная связь</h2>
       <form action="#" method="post">
         <label for="name">Имя</label>
@@ -46,17 +62,18 @@
         <label for="message">Сообщение</label>
         <textarea id="message" name="message" placeholder="Ваш вопрос или пожелание"></textarea>
 
-        <button type="submit" style="background-color: #d97742; color: #fff8ef; border: none; padding: 8px 18px; border-radius: 6px;">Отправить</button>
+        <button type="submit" style="font-size: 16px;">Отправить</button>
       </form>
     </section>
   </main>
 
-  <aside class="sidebar" style="background-color: #fdeeda; border: 1px solid #e6cfa8; border-radius: 8px; padding: 15px; margin: 15px;">
+  <aside id="place" class="sidebar">
+    <span class="pin" aria-hidden="true">📍</span>
     <h2>Любимое место</h2>
     <p>Кемерово - родной город, куда всегда приятно возвращаться после путешествий.</p>
   </aside>
 
-  <footer style="background-color: #f3d9b1; text-align: center; padding: 12px;">
+  <footer>
     <p>&copy; 2026 Эрик Брейденбах</p>
   </footer>
 
