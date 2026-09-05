@@ -54,19 +54,21 @@ header p {
   z-index: 10;
 }
 
-.sticky-nav a:link,
-.sticky-nav a:visited {
+/* Базовые свойства ссылки и плавная анимация цвета */
+.sticky-nav a {
   position: relative;
   color: var(--color-text);
   text-decoration: none;
   font-weight: bold;
   padding-bottom: 2px;
+  transition: color 0.2s ease;
 }
 
 .sticky-nav a:visited {
   color: var(--color-accent-dark);
 }
 
+/* Линия под ссылкой */
 .sticky-nav a::after {
   content: "";
   position: absolute;
