@@ -1,14 +1,10 @@
-/* ЛР№2 — вариант 2 «Путешественник». Основной объём стилей — здесь (внешний файл). */
-
 :root {
-  --color-main: #faf3e8;      /* бежевый — фон страницы */
-  --color-panel: #fdeeda;     /* бежевый чуть темнее — панели/секции */
-  --color-accent: #a8511f;    /* оранжевый (тёмный оттенок) — акцент, ссылки, кнопки;
-                                  подобран так, чтобы держать контраст ≥4.5:1 и как текст
-                                  на бежевом фоне, и как фон под белым текстом */
-  --color-accent-dark: #7a3b16; /* для :hover/:active — ещё темнее, контраст выше */
-  --color-text: #4a3423;      /* тёмно-коричневый текст — контраст на беже ~9:1 */
-  --color-text-on-accent: #fff8ef; /* светлый текст на оранжевом фоне */
+  --color-main: #faf3e8;
+  --color-panel: #fdeeda;
+  --color-accent: #a8511f;
+  --color-accent-dark: #7a3b16; 
+  --color-text: #4a3423;
+  --color-text-on-accent: #fff8ef;
   --border: #e6cfa8;
   --font-base: Arial, Verdana, sans-serif;
 }
@@ -26,20 +22,27 @@ body {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
   background-color: var(--color-accent);
   color: var(--color-text-on-accent);
   padding: 20px;
 }
 
+header img {
+  flex-shrink: 0;
+}
+
 header h1 {
-  margin: 0.3em 0 0;
+  margin: 0;
 }
 
 header p {
   margin: 0;
 }
 
-/* Навигация — position: sticky, остаётся видимой при прокрутке */
 .sticky-nav {
   position: sticky;
   top: 0;
@@ -51,7 +54,6 @@ header p {
   z-index: 10;
 }
 
-/* Порядок LVHA, чтобы :hover/:active не перебивались :visited */
 .sticky-nav a:link,
 .sticky-nav a:visited {
   position: relative;
@@ -108,7 +110,6 @@ h2 {
   padding-bottom: 0.4rem;
 }
 
-/* Демонстрация position: static по варианту (значение по умолчанию, но прописано явно) */
 .static-demo {
   position: static;
 }
@@ -163,7 +164,6 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* aside — position: relative как «якорь» для абсолютно позиционированной иконки-пина */
 .sidebar {
   position: relative;
   max-width: 900px;
